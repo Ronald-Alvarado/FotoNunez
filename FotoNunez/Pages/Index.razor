@@ -1,0 +1,57 @@
+﻿@page "/"
+
+@using System.Web;
+
+<AuthorizeView>
+    <Authorized>
+
+        <div class="container shadow-lg p-3 rb-5 bg-white rounded col-md-8">
+            <div class="card">
+                <div class="card-header justify-content-md-center badge-light">
+                    <h1>Has sido autorizado</h1>
+                </div>
+            </div>            
+        </div>
+    </Authorized>
+    <NotAuthorized>
+        <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                <div class="card card-signin my-5 border-dark bg-light">
+                    <div class="card-header text-center">
+                        <h3>Login</h3>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>Nombre de usuario: </label>
+                            <input type="text" class="form-control" @bind="Usuario" />
+                        </div>
+                        <div class="form-group">
+                            <label>Contraseña: </label>
+                            <input type="password" class="form-control" @bind="Contrasena" />
+                        </div>
+
+                    </div>
+                    <div class="card-footer">
+                        <div class="form-group text-center">
+                            <a class="ml-md-auto btn btn-success"
+                               href="/login?paramUsername=@encode(Usuario)&paramPassword=@encode(Contrasena)"
+                               target="_top">Login<span class="oi oi-account-login"></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </NotAuthorized>
+</AuthorizeView>
+
+@code{
+
+    string Usuario = "";
+    string Contrasena = "";
+
+    private string encode(string param)
+    {
+        return HttpUtility.UrlEncode(param);
+    }
+}
