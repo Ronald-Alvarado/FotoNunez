@@ -1,5 +1,5 @@
-﻿using FotoNunes.DAL;
-using FotoNunes.Entidades;
+﻿using DAL;
+using Entidades;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FotoNunes.BLL
+namespace FotoNunez.BLL
 {
     public class UsuariosBLL
     {

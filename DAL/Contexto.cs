@@ -1,17 +1,12 @@
-﻿using FotoNunes.BLL;
-using FotoNunes.Entidades;
+﻿using Entidades;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace FotoNunes.DAL
+namespace DAL
 {
     public class Contexto : DbContext
     {
         public DbSet<Usuarios> Usuarios { get; set; }
-        
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -20,7 +15,7 @@ namespace FotoNunes.DAL
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Usuarios>().HasData(new Usuarios { UsuarioId = 1, Nombres = "Administrador", NombreUsuario = "admin", Contrasena = UsuariosBLL.Encriptar("admin"), Email = "Example@Fulano.com" });
+            modelBuilder.Entity<Usuarios>().HasData(new Usuarios { UsuarioId = 1, Nombres = "Administrador", NombreUsuario = "admin", Contrasena = "admin", Email = "Example@Fulano.com" });
         }
     }
 }
