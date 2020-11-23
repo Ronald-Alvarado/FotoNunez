@@ -9,10 +9,10 @@ namespace Entidades
     public class Usuarios
     {
         [Key]
-        //[ValidacionId]
+        
         public int UsuarioId { get; set; }
 
-        //[ValidacionNombres]
+        
         public string Nombres { get; set; }
 
         [Required(ErrorMessage = "Este campo no puede estar vacio.")]

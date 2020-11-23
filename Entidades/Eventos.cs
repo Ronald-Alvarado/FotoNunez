@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace Entidades
@@ -37,8 +38,8 @@ namespace Entidades
         [DisplayFormat(DataFormatString = "{0:C}")]
         public decimal Precio { get; set; }
 
-        //[ForeignKey("EventoId")]
-      //  public List<VentasDetalle> VentasDetalle { get; set; }
+        [ForeignKey("EventoId")]
+       public List<VentasDetalle> VentasDetalle { get; set; }
 
         public Eventos()
         {
@@ -50,7 +51,7 @@ namespace Entidades
             FechaFin = DateTime.Now;
             Precio = 0;
 
-            //VentasDetalle = new List<VentasDetalle>();
+            VentasDetalle = new List<VentasDetalle>();
         }
     }
 }
